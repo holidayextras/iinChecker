@@ -1,0 +1,27 @@
+{
+	"name": "iinChecker",
+	"description": "Issuer identification number checker which returns details about a credit/debit card",
+	"version": "0.0.1",
+	"homepage": "https://bitbucket.org/hxshortbreaks/iinChecker",
+	"author": {
+		"name": "Shortbreaks",
+		"email": "shortbreaksdev@holidayextras.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@bitbucket.org:hxshortbreaks/iinChecker.git"
+	},
+	"license": "MIT",
+	"main": "index",
+	"engines": {
+		"node": ">= 0.10.0"
+	},
+	"scripts": {
+		"test": "grunt test"
+	},
+	"devDependencies": {
+		"grunt": "~0.4.3",
+		"grunt-contrib-jshint": "~0.8.0",
+		"grunt-jscs-checker": "~0.4.0"
+	}
+}
