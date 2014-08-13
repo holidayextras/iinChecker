@@ -21,7 +21,7 @@ For non Sublime development a bunch of other IDE plugins are available [here](ht
 
 ## Documentation
 
-Visit our [bitbucket](https://bitbucket.org/hxshortbreaks/) website for all the things.
+Visit our [GitHub](https://github.com/Shortbreaks) website for all the things.
 
 ## Notes on coding style
 
@@ -38,5 +38,5 @@ $ grunt test
 ```
 
 ## License
-Copyright (c) YYYY Shortbreaks
+Copyright (c) 2014 Shortbreaks
 Licensed under the MIT license.

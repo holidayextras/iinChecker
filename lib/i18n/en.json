@@ -1,0 +1,4 @@
+{
+	"PARAMETER_CARDINFO_NOT_OBJECT" : "Parameter \"cardInfo\" is not [object]",
+	"PARAMETER_CALLBACK_NOT_FUNCTION": "Parameter \"callback\" is not [function]"
+}

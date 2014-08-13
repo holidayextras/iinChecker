@@ -29,15 +29,22 @@ module.exports = function( grunt ) {
 				config: 'shortbreaks.jscs.json'
 			},
 			src: ['<%= jshint.core.src %>', '<%= jshint.test.src %>']
+		},
+		mochaTest: {
+			options: {
+				reporter: 'spec'
+			},
+			src: ['test/**/*.js']
 		}
 	} );
 
 	// load tasks from the specified grunt plugins...
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-jscs-checker' );
+	grunt.loadNpmTasks( 'grunt-mocha-test' );
 
 	// register task alias'
 	grunt.registerTask( 'default', ['jshint', 'jscs'] );
-	grunt.registerTask( 'test', ['test'] );
+	grunt.registerTask( 'test', ['mochaTest'] );
 
 };
