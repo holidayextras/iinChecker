@@ -3,11 +3,11 @@
 
 /*
 * @name /Gruntfile.js
-* @description Le Gruntfile...
+* @description Gruntfile. Used to run tests and lint the code
 *              keep this tidy, alphabeticised etc
-* @since Ddd Mmm D YYYY
-* @author Your Name <your.name@holidayextras.com>
+* @author Simon Wood <simon.wood@holidayextras.com>
 */
+
 
 module.exports = function( grunt ) {
 
