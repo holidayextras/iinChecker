@@ -46,11 +46,10 @@ $ grunt test
 Copyright (c) 2014 Shortbreaks
 Licensed under the MIT license.
 
-## License (REMOVE BEFORE FINAL COMMIT
+## Todo (REMOVE BEFORE FINAL COMMIT)
 - Change heading of this file. See [this](https://github.com/mikeal/request)
 - Get working with providers and none provider RegEx alternative
 - Allow preference of providers to be passed into options
 - Support caching
 - Write excellent docs
-- Client side version
 
