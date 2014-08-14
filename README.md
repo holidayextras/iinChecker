@@ -1,5 +1,6 @@
 # IIN Checker for payment cards
 
+[![NPM](https://nodei.co/npm/iin-checker.png)](https://nodei.co/npm/iin-checker/)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 ## About
@@ -10,6 +11,7 @@ Issuer identification number checker which returns details about a credit/debit 
 - [Wikipedia: ISO/IEC 7812 Standard](http://en.wikipedia.org/wiki/ISO/IEC_7812)
 - [Wikipedia: Rules arround bank cards numbers](http://en.wikipedia.org/wiki/Bank_card_number)
 - [StackOverflow: RegEx for calculating brand](http://stackoverflow.com/questions/72768/how-do-you-detect-credit-card-type-based-on-number)
+- [Another NPM Card Module](https://github.com/observing/creditcard)
 
 ## Getting Started
 
