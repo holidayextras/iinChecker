@@ -1,4 +1,5 @@
 {
-	"PARAMETER_CARDINFO_NOT_OBJECT" : "Parameter \"cardInfo\" is not [object]",
+	"PARAMETER_IIN_IS_UNDEFINED" : "Parameter \"iin\" is [undefined]",
+	"PARAMETER_IIN_IS_EMPTY" : "Parameter \"iin\" is [empty]",
 	"PARAMETER_CALLBACK_NOT_FUNCTION": "Parameter \"callback\" is not [function]"
 }
