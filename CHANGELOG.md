@@ -1,3 +1,6 @@
+## **0.1.2**
+- [**#1**](https://github.com/Shortbreaks/iinChecker/issues/1) Added in param checking on the lookup function
+
 ## **0.1.1**
 - Name change from iinChecker to iin-checker as NPM does not support camelCase package names
 
