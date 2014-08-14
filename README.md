@@ -1,6 +1,7 @@
 # IIN Checker for payment cards
 
 [![NPM](https://nodei.co/npm/iin-checker.png)](https://nodei.co/npm/iin-checker/)
+
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 ## About

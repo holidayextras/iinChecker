@@ -17,7 +17,7 @@ describe( '#lookup a card', function() {
 			}
 		} );
 	} );
-	
+
 	it( 'iin lookup returns card as an object', function( done ) {
 		testGenCard.should.be.a( 'object' );
 		done();
@@ -34,7 +34,6 @@ describe( '#lookup a card', function() {
 	} );
 } );
 
-	
 describe( '#lookup visa debit', function() {
 	var testVisaDebitCard;
 	it( 'should lookup a card without error', function( done ) {
@@ -47,7 +46,7 @@ describe( '#lookup visa debit', function() {
 			}
 		} );
 	} );
-	
+
 	it( 'card is of type debit', function( done ) {
 		testVisaDebitCard.type.should.equal( iin.types.DEBIT );
 		done();
@@ -71,7 +70,7 @@ describe( '#lookup mastercard credit', function() {
 			}
 		} );
 	} );
-		
+
 	it( 'card is of type credit', function( done ) {
 		testMasterCreditCard.type.should.equal( iin.types.CREDIT );
 		done();
