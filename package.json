@@ -1,5 +1,5 @@
 {
-  "name": "iinChecker",
+  "name": "iin-checker",
   "description": "Issuer identification number checker which returns details about a credit/debit card",
   "version": "0.1.0",
   "homepage": "https://github.com/Shortbreaks/iinChecker",
