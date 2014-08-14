@@ -28,6 +28,7 @@
     "mocha": "^1.21.4"
   },
   "dependencies": {
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "request": "^2.40.0"
   }
 }

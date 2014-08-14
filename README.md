@@ -1,10 +1,15 @@
-# iinChecker
+# IIN Checker for payment cards
 
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 ## About
 
-Issuer identification number checker which returns details about a credit/debit card
+Issuer identification number checker which returns details about a credit/debit and other payment cards
+
+### Additional resources and links
+- [Wikipedia: ISO/IEC 7812 Standard](http://en.wikipedia.org/wiki/ISO/IEC_7812)
+- [Wikipedia: Rules arround bank cards numbers](http://en.wikipedia.org/wiki/Bank_card_number)
+- [StackOverflow: RegEx for calculating brand](http://stackoverflow.com/questions/72768/how-do-you-detect-credit-card-type-based-on-number)
 
 ## Getting Started
 
@@ -40,3 +45,12 @@ $ grunt test
 ## License
 Copyright (c) 2014 Shortbreaks
 Licensed under the MIT license.
+
+## License (REMOVE BEFORE FINAL COMMIT
+- Change heading of this file. See [this](https://github.com/mikeal/request)
+- Get working with providers and none provider RegEx alternative
+- Allow preference of providers to be passed into options
+- Support caching
+- Write excellent docs
+- Client side version
+
