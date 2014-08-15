@@ -25,7 +25,8 @@
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-jscs-checker": "~0.4.0",
     "grunt-mocha-test": "^0.11.0",
-    "mocha": "^1.21.4"
+    "mocha": "^1.21.4",
+    "nock": "~0.44.3"
   },
   "dependencies": {
     "lodash": "^2.4.1",
