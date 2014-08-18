@@ -17,6 +17,10 @@ function stubRequest( provider, iin ) {
 	}
 }
 
+// Here we are just testing binlist, so lets put the provider in a var
+// We can expand on this when we add further / fallback providers
+var provider = 'binlist';
+
 describe( '#lookup a card', function() {
 	var testGenCard;
 	it( 'should lookup a card without error', function( done ) {
@@ -48,9 +52,6 @@ describe( '#lookup a card', function() {
 	} );
 } );
 
-// Here we are just testing binlist, so lets put the provider in a var
-// We can expand on this when we add further / fallback providers
-var provider = 'binlist';
 describe( '#lookup visa debit', function() {
 	var testVisaDebitCard;
 	it( 'should lookup a card without error', function( done ) {
