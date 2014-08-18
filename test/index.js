@@ -4,11 +4,29 @@
 var should = require( 'chai' ).should();
 var IinChecker = require( '../index' );
 var iin = new IinChecker( {} );
+var nock = require('nock');
+
+// This function will stub out a single request to the specified provider with the iin and return the corrosponding json
+function stubRequest( provider, iin ) {
+	// Make sure our string comparisons don't get caught out by case issues by converting to uppercase
+	provider = provider.toUpperCase();
+	switch( provider ) {
+			case 'BINLIST':
+				nock('http://www.binlist.net').get('/json/' + iin).reply(200, require( './fixtures/' + provider + '/' + iin ) );
+				break;
+	}
+}
+
+// Here we are just testing binlist, so lets put the provider in a var
+// We can expand on this when we add further / fallback providers
+var provider = 'binlist';
 
 describe( '#lookup a card', function() {
 	var testGenCard;
 	it( 'should lookup a card without error', function( done ) {
-		iin.lookup( '411111', function( err, result ) {
+		var iinToLookup = '411111';
+		stubRequest( provider, iinToLookup );
+		iin.lookup( iinToLookup, function( err, result ) {
 			if ( err ) {
 				throw( err );
 			} else {
@@ -37,7 +55,9 @@ describe( '#lookup a card', function() {
 describe( '#lookup visa debit', function() {
 	var testVisaDebitCard;
 	it( 'should lookup a card without error', function( done ) {
-		iin.lookup( '431940', function( err, result ) {
+		var iinToLookup = '431940';
+		stubRequest( provider, iinToLookup );
+		iin.lookup( iinToLookup, function( err, result ) {
 			if ( err ) {
 				throw( err );
 			} else {
@@ -61,7 +81,9 @@ describe( '#lookup visa debit', function() {
 describe( '#lookup mastercard credit', function() {
 	var testMasterCreditCard;
 	it( 'should lookup a card without error', function( done ) {
-		iin.lookup( '518791', function( err, result ) {
+		var iinToLookup = '518791';
+		stubRequest( provider, iinToLookup );
+		iin.lookup( iinToLookup, function( err, result ) {
 			if ( err ) {
 				throw( err );
 			} else {
