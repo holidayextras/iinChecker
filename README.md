@@ -1,8 +1,10 @@
 # IIN Checker for payment cards
 
-[![NPM](https://nodei.co/npm/iin-checker.png)](https://nodei.co/npm/iin-checker/)
+[![Build Status](https://travis-ci.org/Shortbreaks/iinChecker.svg)](https://travis-ci.org/Shortbreaks/iinChecker)
+[![Dependency Status](https://gemnasium.com/Shortbreaks/iinChecker.png)](https://gemnasium.com/Shortbreaks/iinChecker)
+[![Coverage Status](https://coveralls.io/repos/Shortbreaks/iinChecker/badge.png)](https://coveralls.io/r/Shortbreaks/iinChecker)
 
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![NPM](https://nodei.co/npm/iin-checker.png)](https://nodei.co/npm/iin-checker/)
 
 ## About
 
