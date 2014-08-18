@@ -2,7 +2,7 @@
 
 [![NPM](https://nodei.co/npm/iin-checker.png)](https://nodei.co/npm/iin-checker/)
 
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Built with Travis](https://travis-ci.org/Shortbreaks/iinChecker.svg)](https://travis-ci.org/Shortbreaks/iinChecker)
 
 ## About
 
