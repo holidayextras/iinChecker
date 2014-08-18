@@ -8,9 +8,11 @@ var nock = require('nock');
 
 // This function will stub out a single request to the specified provider with the iin and return the corrosponding json
 function stubRequest( provider, iin ) {
-	switch( provider.toUpperCase() ) {
+	// Make sure our string comparisons don't get caught out by case issues by converting to uppercase
+	provider = provider.toUpperCase();
+	switch( provider ) {
 			case 'BINLIST':
-				nock('http://www.binlist.net').get('/json/' + iin).reply(200, require( './fixtures/' + iin ) );
+				nock('http://www.binlist.net').get('/json/' + iin).reply(200, require( './fixtures/' + provider + '/' + iin ) );
 				break;
 	}
 }
