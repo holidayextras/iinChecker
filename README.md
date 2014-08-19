@@ -1,8 +1,9 @@
 # IIN Checker for payment cards
 
-[![Build Status](https://travis-ci.org/Shortbreaks/iinChecker.svg)](https://travis-ci.org/Shortbreaks/iinChecker)
-[![Dependency Status](https://gemnasium.com/Shortbreaks/iinChecker.png)](https://gemnasium.com/Shortbreaks/iinChecker)
-[![Coverage Status](https://coveralls.io/repos/Shortbreaks/iinChecker/badge.png)](https://coveralls.io/r/Shortbreaks/iinChecker)
+[![Build Status](https://travis-ci.org/Shortbreaks/iinChecker.png)](https://travis-ci.org/Shortbreaks/iinChecker)
+[![Coverage Status](https://coveralls.io/repos/Shortbreaks/iinChecker/badge.png?branch=master)](https://coveralls.io/r/Shortbreaks/iinChecker?branch=master)
+[![Dependency status](https://david-dm.org/Shortbreaks/iinChecker/status.png)](https://david-dm.org/Shortbreaks/iinChecker#info=dependencies&view=table)
+[![Dev Dependency Status](https://david-dm.org/Shortbreaks/iinChecker/dev-status.png)](https://david-dm.org/Shortbreaks/iinChecker#info=devDependencies&view=table)
 
 [![NPM](https://nodei.co/npm/iin-checker.png)](https://nodei.co/npm/iin-checker/)
 
