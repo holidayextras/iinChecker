@@ -1,0 +1,12 @@
+[
+	{
+		"name": "BINLIST",
+		"domain": "http://www.binlist.net",
+		"path": "/json/"
+	},
+	{
+		"name": "RIBBON",
+		"domain": "https://bins.ribbon.co",
+		"path": "/api/v1/bins/"
+	}
+]
