@@ -18,17 +18,22 @@ module.exports = function( grunt ) {
 				jshintrc: '.jshintrc'
 			},
 			core: {
-				src: ['Gruntfile.js', 'package.json', 'lib/**/*.js', 'lib /**/*.json']
+				src: ['Gruntfile.js', 'lib/**/*.js']
 			},
 			test: {
-				src: ['test/**/*.js', 'test/**/*.json']
+				src: ['test/**/*.js']
+			},
+			json: {
+				src: ['package.json', 'lib/**/*.json', 'test/**/*.json']
 			}
 		},
 		jscs: {
 			options: {
-				config: 'shortbreaks.jscs.json'
+				config: '.jscsrc'
 			},
-			src: ['<%= jshint.core.src %>', '<%= jshint.test.src %>']
+			files: {
+				src: ['<%= jshint.core.src %>', '<%= jshint.test.src %>']
+			}
 		},
 		mochaTest: {
 			options: {
@@ -40,7 +45,7 @@ module.exports = function( grunt ) {
 
 	// load tasks from the specified grunt plugins...
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
-	grunt.loadNpmTasks( 'grunt-jscs-checker' );
+	grunt.loadNpmTasks( 'grunt-jscs' );
 	grunt.loadNpmTasks( 'grunt-mocha-test' );
 
 	// register task alias'
