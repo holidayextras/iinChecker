@@ -53,8 +53,8 @@ Copyright (c) 2014 Shortbreaks
 Licensed under the MIT license.
 
 ## Todo (REMOVE BEFORE FINAL COMMIT)
-- Change heading of this file. See [this](https://github.com/mikeal/request)
-- Get working with providers and none provider RegEx alternative
+- Get mock working with ribon provider 
+- Get non-provider RegEx alternative
 - Allow preference of providers to be passed into options
 - Support caching
 - Write excellent docs
