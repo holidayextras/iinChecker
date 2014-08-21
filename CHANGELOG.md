@@ -1,3 +1,7 @@
+## **0.1.3**
+- [**#3**](https://github.com/Shortbreaks/iinChecker/issues/3) Testing multiple, stubbed out providers
+- Handled case where both providers are down it would silently error, Now error bubbles up.
+
 ## **0.1.2**
 - [**#1**](https://github.com/Shortbreaks/iinChecker/issues/1) Added in param checking on the lookup function
 
