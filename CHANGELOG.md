@@ -1,3 +1,8 @@
+# Changelog
+
+## **0.1.4**
+- Documentation all updated. Now shows clear use cases and examples.
+
 ## **0.1.3**
 - [**#3**](https://github.com/Shortbreaks/iinChecker/issues/3) Testing multiple, stubbed out providers
 - Handled case where both providers are down it would silently error, Now error bubbles up.

@@ -17,45 +17,83 @@ Issuer identification number checker which returns details about a credit/debit 
 - [StackOverflow: RegEx for calculating brand](http://stackoverflow.com/questions/72768/how-do-you-detect-credit-card-type-based-on-number)
 - [Another NPM Card Module](https://github.com/observing/creditcard)
 
-## Getting Started
+## Installation
 
-If you want to work on this repo you will need to install the dependencies
+The module is available in the NPM registery. It can be installed using the
+`npm` commandline utlity.
+
 ```
-$ npm install
-```
-
-#### EditorConfig
-
-EditorConfig helps us define and maintain consistent coding styles between different editors and IDEs.  If you are using Sublime Editor you can install the `EditorConfig` using [Package Control](https://sublime.wbond.net).
-
-For non Sublime development a bunch of other IDE plugins are available [here](http://editorconfig.org/#download)
-
-## Documentation
-
-Visit our [GitHub](https://github.com/Shortbreaks) website for all the things.
-
-## Notes on coding style
-
-Code is linted by ".jshintrc" and checked against the coding style guide "shortbreaks.jscs.json" when you run the default grunt task:
-```
-$ grunt
+npm install iin-checker
 ```
 
-## Tests
+Once you have installed the module you can simply require inside of your Node.js
+application and use it's exported methods. Here is a simple example of that which gets the card details back as an object:
 
-Tests will run using the default grunt task but can also be called stand-alone using:
+```js
+var IinChecker = require( 'iin-checker' );
+var iin = new IinChecker( {} );
+
+iin.lookup( '543210', function( err, result ) {
+	if ( err ) {
+		console.log( 'Error:', err );
+	} else {
+		console.log( 'Result:', result );
+	}
+} );
 ```
-$ grunt test
+
+### Card Type Detection
+
+If you want to test to see if the card is a Credit or Debit card you can can achive this in the following way:
+
+```js
+var IinChecker = require( 'iin-checker' );
+var iin = new IinChecker( {} );
+
+iin.lookup( '543210', function( err, result ) {
+	if ( err ) {
+		console.log( 'Error:', err );
+	} else {
+		var isDebit = ( result.type === iin.types.DEBIT )
+		console.log( 'Debit?:', isDebit );
+	}
+} );
 ```
+
+Possible values for _iin.types_ are **DEBIT**, **CREDIT** and **UNKNOWN**.
+
+### Card Brand Detection
+
+If you want to test to see which brand the card is, you can can achive this in the following way:
+
+```js
+var IinChecker = require( 'iin-checker' );
+var iin = new IinChecker( {} );
+
+iin.lookup( '543210', function( err, result ) {
+	if ( err ) {
+		console.log( 'Error:', err );
+	} else {
+		var isMastercard = ( result.brand === iin.brands.MASTERCARD )
+		console.log( 'Mastercard?:', isMastercard );
+	}
+} );
+```
+
+Possible values for _iin.brands_ are **VISA**, **MASTERCARD**, **AMEX**, **DISCOVER**, **JCB**, **MAESTRO** and **LASER**. In future more card brands will be supported, if you need a brand adding please raise an issue.
+
+## [Changelog](CHANGELOG.md)
+
+## [Contributing](CONTRIBUTING.md)
+
 
 ## License
 Copyright (c) 2014 Shortbreaks
 Licensed under the MIT license.
 
-## Todo (REMOVE BEFORE FINAL COMMIT)
-- Get mock working with ribon provider 
+## Todo
 - Get non-provider RegEx alternative
+- Read providers from configs (as the tests do)
 - Allow preference of providers to be passed into options
 - Support caching
-- Write excellent docs
 
