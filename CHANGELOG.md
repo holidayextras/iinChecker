@@ -1,10 +1,10 @@
 # Changelog
 
 ## **0.1.6**
-- Abstracted providers and schema mapping into config file.
+- [**#5**](https://github.com/Shortbreaks/iinChecker/issues/5) Abstracted providers and schema mapping into config file.
 
 ## **0.1.5**
-- Catch exceptions thrown in callback like the iin not being found in either provider.
+- [**#6**](https://github.com/Shortbreaks/iinChecker/issues/6) Change output object to include iin instead of bin
 
 ## **0.1.4**
 - Documentation all updated. Now shows clear use cases and examples.
