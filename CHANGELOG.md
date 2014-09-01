@@ -1,5 +1,8 @@
 # Changelog
 
+## **0.1.6**
+- [**#5**](https://github.com/Shortbreaks/iinChecker/issues/5) Abstracted providers and schema mapping into config file.
+
 ## **0.1.5**
 - [**#6**](https://github.com/Shortbreaks/iinChecker/issues/6) Change output object to include iin instead of bin
 
