@@ -44,7 +44,7 @@ providers.forEach( function( provider ) {
 		} );
 
 		it( 'card object returned contains the correct properties', function( done ) {
-			testGenCard.should.have.property( 'bin' );
+			testGenCard.should.have.property( 'iin' );
 			testGenCard.should.have.property( 'brand' );
 			testGenCard.should.have.property( 'issuer' );
 			testGenCard.should.have.property( 'type' );
