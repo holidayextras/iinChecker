@@ -14,7 +14,11 @@ providers.forEach( function( provider ) {
 
 	var stubRequest = function( iin ) {
 		// Make sure our string comparisons don't get caught out by case issues by converting to uppercase
-		nock( provider.domain ).get( provider.path + iin ).reply( 200, require( './fixtures/' + provider.name + '/' + iin ) );
+		if ( iin !== '111111' ) {
+			nock( provider.domain ).get( provider.path + iin ).replyWithFile( 200, __dirname + '/fixtures/' + provider.name + '/' + iin + '.json' );
+		} else {
+			nock( provider.domain ).get( provider.path + iin ).reply( 404, '404 page not found' );
+		}
 	};
 
 	// This will stop all further calls to this provider from functioning...Please make sure you call this on the last line of your last test function
@@ -50,6 +54,16 @@ providers.forEach( function( provider ) {
 			testGenCard.should.have.property( 'category' );
 			testGenCard.should.have.property( 'country' );
 			done();
+		} );
+		
+		it( 'should lookup a card and error gracefully', function( done ) {
+			var iinToLookup = '111111';
+			stubRequest( iinToLookup );
+			iin.lookup( iinToLookup, function( err, result ) {
+				err.should.not.be.null;
+				err.should.not.be.undefined;
+				done();
+			} );
 		} );
 	} );
 
