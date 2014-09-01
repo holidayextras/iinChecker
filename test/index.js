@@ -13,7 +13,6 @@ var providers = require( '../configs/providers' );
 providers.forEach( function( provider ) {
 
 	var stubRequest = function( iin ) {
-		console.log( provider.domain );
 		// Make sure our string comparisons don't get caught out by case issues by converting to uppercase
 		nock( provider.domain ).get( provider.path + iin ).reply( 200, require( './fixtures/' + provider.name + '/' + iin ) );
 	};
