@@ -6,7 +6,7 @@ var IinChecker = require( '../index' );
 var iin = new IinChecker( {} );
 var nock = require('nock');
 
-// Load all of our providers into an array that we can loop over. This needs to match those available
+// Load all of our providers into an array that we can loop over.
 var providers = require( '../configs/providers' );
 
 // Lets read our providers in from the config and loop over them
