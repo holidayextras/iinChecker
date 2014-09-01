@@ -1,17 +1,22 @@
 # Changelog
 
+## **0.1.7**
+- [**#10**](https://github.com/Shortbreaks/iinChecker/issues/10) Fixed issues not getting caught
+- Fixed bug with the provider loop overrunning the end of the array
+- Extended test to give 100% code coverage
+
 ## **0.1.6**
-- [**#5**](https://github.com/Shortbreaks/iinChecker/issues/5) Abstracted providers and schema mapping into config file.
+- [**#5**](https://github.com/Shortbreaks/iinChecker/issues/5) Abstracted providers and schema mapping into config file
 
 ## **0.1.5**
 - [**#6**](https://github.com/Shortbreaks/iinChecker/issues/6) Change output object to include iin instead of bin
 
 ## **0.1.4**
-- Documentation all updated. Now shows clear use cases and examples.
+- Documentation all updated. Now shows clear use cases and examples
 
 ## **0.1.3**
 - [**#3**](https://github.com/Shortbreaks/iinChecker/issues/3) Testing multiple, stubbed out providers
-- Handled case where both providers are down it would silently error, Now error bubbles up.
+- Handled case where both providers are down it would silently error, Now error bubbles up
 
 ## **0.1.2**
 - [**#1**](https://github.com/Shortbreaks/iinChecker/issues/1) Added in param checking on the lookup function
