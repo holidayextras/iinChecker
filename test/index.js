@@ -7,13 +7,13 @@ var iin = new IinChecker( {} );
 var nock = require('nock');
 
 // Load all of our providers into an array that we can loop over. This needs to match those available
-var providers = require( '../configs/providers.json' );
-
+var providers = require( '../configs/providers' );
 
 // Lets read our providers in from the config and loop over them
 providers.forEach( function( provider ) {
 
 	var stubRequest = function( iin ) {
+		console.log( provider.domain );
 		// Make sure our string comparisons don't get caught out by case issues by converting to uppercase
 		nock( provider.domain ).get( provider.path + iin ).reply( 200, require( './fixtures/' + provider.name + '/' + iin ) );
 	};
@@ -44,7 +44,7 @@ providers.forEach( function( provider ) {
 		} );
 
 		it( 'card object returned contains the correct properties', function( done ) {
-			testGenCard.should.have.property( 'bin' );
+			testGenCard.should.have.property( 'iin' );
 			testGenCard.should.have.property( 'brand' );
 			testGenCard.should.have.property( 'issuer' );
 			testGenCard.should.have.property( 'type' );
