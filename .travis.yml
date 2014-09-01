@@ -5,3 +5,7 @@ node_js:
 
 before_script:
   - npm install -g grunt-cli
+  - npm install -g mocha
+
+after_script:
+  - istanbul cover _mocha -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
