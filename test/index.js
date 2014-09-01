@@ -37,6 +37,20 @@ providers.forEach( function( provider ) {
 			} );
 		} );
 
+		it( 'should return an error of not a number', function( done ) {
+			iin.lookup( 'foobar', function( err, result ) {
+				err.should.not.be.null;
+				done();
+			} );
+		} );
+
+		it( 'should return an error of not long enough', function( done ) {
+			iin.lookup( '123', function( err, result ) {
+				err.should.not.be.null;
+				done();
+			} );
+		} );
+
 		it( 'iin lookup returns card as an object', function( done ) {
 			testGenCard.should.be.a( 'object' );
 			done();
