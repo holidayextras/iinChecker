@@ -21,6 +21,11 @@ describe( '#pass in invalid params', function() {
 			done();
 		} );
 	} );
+	it( 'should lookup a card with undefined callback and error gracefully', function( done ) {
+		result = iin.lookup( '411111' );
+		result.message.should.equal( iin.options.messages.PARAMETER_CALLBACK_NOT_FUNCTION );
+		done();
+	} );
 } );
 
 // Load all of our providers into an array that we can loop over.
