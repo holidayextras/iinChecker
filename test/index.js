@@ -6,6 +6,23 @@ var IinChecker = require( '../index' );
 var iin = new IinChecker( {} );
 var nock = require('nock');
 
+describe( '#pass in invalid params', function() {
+	it( 'should lookup a card with undefined iin and error gracefully', function( done ) {
+		iin.lookup( undefined, function( err, result ) {
+			err.should.be.a( 'object' );
+			err.message.should.equal( iin.options.messages.PARAMETER_IIN_IS_UNDEFINED );
+			done();
+		} );
+	} );
+	it( 'should lookup a card with empty iin and error gracefully', function( done ) {
+		iin.lookup( '', function( err, result ) {
+			err.should.be.a( 'object' );
+			err.message.should.equal( iin.options.messages.PARAMETER_IIN_IS_EMPTY );
+			done();
+		} );
+	} );
+} );
+
 // Load all of our providers into an array that we can loop over.
 var providers = require( '../configs/providers' );
 
@@ -56,7 +73,7 @@ providers.forEach( function( provider ) {
 			done();
 		} );
 		
-		it( 'should lookup a card and error gracefully', function( done ) {
+		it( 'should lookup an invalid card and error gracefully', function( done ) {
 			var iinToLookup = '111111';
 			stubRequest( iinToLookup );
 			iin.lookup( iinToLookup, function( err, result ) {
