@@ -1,5 +1,11 @@
 # Changelog
 
+## **0.1.6**
+- Abstracted providers and schema mapping into config file.
+
+## **0.1.5**
+- Catch exceptions thrown in callback like the iin not being found in either provider.
+
 ## **0.1.4**
 - Documentation all updated. Now shows clear use cases and examples.
 
