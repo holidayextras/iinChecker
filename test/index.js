@@ -26,6 +26,19 @@ describe( '#pass in invalid params', function() {
 		result.message.should.equal( iin.options.messages.PARAMETER_CALLBACK_NOT_FUNCTION );
 		done();
 	} );
+	it( 'should return an error of not a number', function( done ) {
+		iin.lookup( 'foobar', function( err, result ) {
+			err.should.not.be.null;
+			done();
+		} );
+	} );
+
+	it( 'should return an error of not long enough', function( done ) {
+		iin.lookup( '123', function( err, result ) {
+			err.should.not.be.null;
+			done();
+		} );
+	} );
 } );
 
 // Load all of our providers into an array that we can loop over.
@@ -63,20 +76,6 @@ providers.forEach( function( provider ) {
 			} );
 		} );
 
-		it( 'should return an error of not a number', function( done ) {
-			iin.lookup( 'foobar', function( err, result ) {
-				err.should.not.be.null;
-				done();
-			} );
-		} );
-
-		it( 'should return an error of not long enough', function( done ) {
-			iin.lookup( '123', function( err, result ) {
-				err.should.not.be.null;
-				done();
-			} );
-		} );
-
 		it( 'iin lookup returns card as an object', function( done ) {
 			testGenCard.should.be.a( 'object' );
 			done();
@@ -91,7 +90,7 @@ providers.forEach( function( provider ) {
 			testGenCard.should.have.property( 'country' );
 			done();
 		} );
-		
+
 		it( 'should lookup an invalid card and error gracefully', function( done ) {
 			var iinToLookup = '111111';
 			stubRequest( iinToLookup );
