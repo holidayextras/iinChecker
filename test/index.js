@@ -28,14 +28,15 @@ describe( '#pass in invalid params', function() {
 	} );
 	it( 'should return an error of not a number', function( done ) {
 		iin.lookup( 'foobar', function( err, result ) {
-			err.should.not.be.null;
+			err.should.be.a( 'object' );
+			err.message.should.equal( iin.options.messages.PARAMETER_IIN_IS_NOT_A_NUMBER );
 			done();
 		} );
 	} );
-
 	it( 'should return an error of not long enough', function( done ) {
 		iin.lookup( '123', function( err, result ) {
-			err.should.not.be.null;
+			err.should.be.a( 'object' );
+			err.message.should.equal( iin.options.messages.PARAMETER_IIN_IS_NOT_LONG_ENOUGH );
 			done();
 		} );
 	} );
