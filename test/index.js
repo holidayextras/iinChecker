@@ -22,7 +22,7 @@ describe( '#pass in invalid params', function() {
 		} );
 	} );
 	it( 'should lookup a card with undefined callback and error gracefully', function( done ) {
-		result = iin.lookup( '411111' );
+		var result = iin.lookup( '411111' );
 		result.message.should.equal( iin.options.messages.PARAMETER_CALLBACK_NOT_FUNCTION );
 		done();
 	} );
@@ -77,7 +77,7 @@ providers.forEach( function( provider ) {
 			testGenCard.should.have.property( 'country' );
 			done();
 		} );
-		
+
 		it( 'should lookup an invalid card and error gracefully', function( done ) {
 			var iinToLookup = '111111';
 			stubRequest( iinToLookup );
