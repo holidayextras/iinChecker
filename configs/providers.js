@@ -33,16 +33,9 @@ module.exports = [
 	},
 	{
 		name: "REGEX",
-		domain: '',
-		path: '',
-
-
-
-		// TODO: Rename this to be more descriptive
 		get: function( iin, callback ) {
 
 			var patterns = require( "./pattern" );
-
 			var matched = { "name" : null };
 
 			_.each( patterns, function( provider ) {
@@ -66,7 +59,6 @@ module.exports = [
 				iin: returnedData.iin,
 				brand: returnedData.brand,
 				issuer: nullValue,
-				type: nullValue,
 				category: nullValue,
 				country: nullValue
 			}
