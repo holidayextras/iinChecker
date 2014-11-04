@@ -1,5 +1,7 @@
 {
 	"PARAMETER_IIN_IS_UNDEFINED" : "Parameter \"iin\" is [undefined]",
 	"PARAMETER_IIN_IS_EMPTY" : "Parameter \"iin\" is [empty]",
+	"PARAMETER_IIN_IS_NOT_A_NUMBER" : "Parameter \"iin\" in not a number",
+	"PARAMETER_IIN_IS_NOT_LONG_ENOUGH" : "Parameter \"iin\" in not long enough (6 characters)",
 	"PARAMETER_CALLBACK_NOT_FUNCTION": "Parameter \"callback\" is not [function]"
 }
