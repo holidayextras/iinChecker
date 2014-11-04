@@ -49,17 +49,21 @@ var providers = require( '../configs/providers' );
 providers.forEach( function( provider ) {
 
 	var stubRequest = function( iin ) {
-		// Make sure our string comparisons don't get caught out by case issues by converting to uppercase
-		if ( iin !== '111111' ) {
-			nock( provider.domain ).get( provider.path + iin ).replyWithFile( 200, __dirname + '/fixtures/' + provider.name + '/' + iin + '.json' );
-		} else {
-			nock( provider.domain ).get( provider.path + iin ).reply( 404, '404 page not found' );
+		if( provider.domain ) {
+			// Make sure our string comparisons don't get caught out by case issues by converting to uppercase
+			if ( iin !== '111111' ) {
+				nock( provider.domain ).get( provider.path + iin ).replyWithFile( 200, __dirname + '/fixtures/' + provider.name + '/' + iin + '.json' );
+			} else {
+				nock( provider.domain ).get( provider.path + iin ).reply( 404, '404 page not found' );
+			}
 		}
 	};
 
 	// This will stop all further calls to this provider from functioning...Please make sure you call this on the last line of your last test function
 	var breakProvider = function() {
-		nock( provider.domain ).persist().get( '*' ).reply( 500 );
+		if( provider.domain ) {
+			nock( provider.domain ).persist().get( '*' ).reply( 500 );
+		}
 	};
 
 	describe( '#lookup a card using ' + provider.name, function() {
@@ -86,7 +90,6 @@ providers.forEach( function( provider ) {
 			testGenCard.should.have.property( 'iin' );
 			testGenCard.should.have.property( 'brand' );
 			testGenCard.should.have.property( 'issuer' );
-			testGenCard.should.have.property( 'type' );
 			testGenCard.should.have.property( 'category' );
 			testGenCard.should.have.property( 'country' );
 			done();
@@ -119,7 +122,9 @@ providers.forEach( function( provider ) {
 		} );
 
 		it( 'card is of type debit', function( done ) {
-			testVisaDebitCard.type.should.equal( iin.types.DEBIT );
+			if( testVisaDebitCard.type ) {
+				testVisaDebitCard.type.should.equal( iin.types.DEBIT );
+			}
 			done();
 		} );
 
@@ -145,7 +150,9 @@ providers.forEach( function( provider ) {
 		} );
 
 		it( 'card is of type credit', function( done ) {
-			testMasterCreditCard.type.should.equal( iin.types.CREDIT );
+			if( testMasterCreditCard.type ) {
+				testMasterCreditCard.type.should.equal( iin.types.CREDIT );
+			}
 			done();
 		} );
 

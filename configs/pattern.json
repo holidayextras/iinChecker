@@ -1,0 +1,11 @@
+[
+	{ "name" : "VISA", "pattern" : "^4[0-9]{5,}$" },
+	{ "name" : "MASTERCARD", "pattern" : "^5[1-5][0-9]{3,}$" },
+	{ "name" : "DISCOVER", "pattern" : "^6(?:011|5[0-9]{2})[0-9]{3,}$" },
+	{ "name" : "AMEX", "pattern" : "^3[47][0-9]{5,}$" },
+	{ "name" : "DINERS", "pattern" : "^3(?:0[0-5]|[68][0-9])[0-9]{4,}$" },
+	{ "name" : "JCB", "pattern" : "^(?:2131|1800|35[0-9]{3})[0-9]{3,}$" },
+	{ "name" : "MAESTRO", "pattern" : "^(5[06-8]|6\\d)\\d{10,17}$" },
+	{ "name" : "LASER", "pattern" : "^(6304|6706|6771|6709)\\d{8}(\\d{4}|\\d{6,7})?$" },
+	{ "name" : "UNKNOWN", "pattern" : ".*" }
+]
