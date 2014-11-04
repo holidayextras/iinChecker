@@ -104,10 +104,13 @@ providers.forEach( function( provider ) {
 			} );
 		} );
 
-		it( 'card is of type debit', function( done ) {
-			testVisaDebitCard.type.should.equal( iin.types.DEBIT );
-			done();
-		} );
+
+		if( !provider.get ) {
+			it( 'card is of type debit', function( done ) {
+				testVisaDebitCard.type.should.equal( iin.types.DEBIT );
+				done();
+			} );
+		}
 
 		it( 'card is of brand visa', function( done ) {
 			testVisaDebitCard.brand.should.equal( iin.brands.VISA );
@@ -130,10 +133,13 @@ providers.forEach( function( provider ) {
 			} );
 		} );
 
-		it( 'card is of type credit', function( done ) {
-			testMasterCreditCard.type.should.equal( iin.types.CREDIT );
-			done();
-		} );
+		// If our provider has a get method... we don't want to check card type.
+		if( !provider.get ) {
+			it( 'card is of type credit', function( done ) {
+				testMasterCreditCard.type.should.equal( iin.types.CREDIT );
+				done();
+			} );
+		}
 
 		it( 'card is of brand mastercard', function( done ) {
 			testMasterCreditCard.brand.should.equal( iin.brands.MASTERCARD );
