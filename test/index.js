@@ -6,6 +6,9 @@ var IinChecker = require( '../index' );
 var iin = new IinChecker( {} );
 var nock = require('nock');
 
+// RegEx Constant
+var REGEX = "REGEX";
+
 describe( '#pass in invalid params', function() {
 	it( 'should lookup a card with undefined iin and error gracefully', function( done ) {
 		iin.lookup( undefined, function( err, result ) {
@@ -45,28 +48,30 @@ describe( '#pass in invalid params', function() {
 // Load all of our providers into an array that we can loop over.
 var providers = require( '../configs/providers' );
 
-// Lets read our providers in from the config and loop over them
-providers.forEach( function( provider ) {
-
-	var stubRequest = function( iin ) {
+var stubRequest = function( provider, iin ) {
+	// Don't stub our network requests if our provider is RegEx as it is not a network request
+	if ( provider.name != REGEX ) {
 		// Make sure our string comparisons don't get caught out by case issues by converting to uppercase
 		if ( iin !== '111111' ) {
 			nock( provider.domain ).get( provider.path + iin ).replyWithFile( 200, __dirname + '/fixtures/' + provider.name + '/' + iin + '.json' );
 		} else {
 			nock( provider.domain ).get( provider.path + iin ).reply( 404, '404 page not found' );
 		}
-	};
+	}
+};
 
-	// This will stop all further calls to this provider from functioning...Please make sure you call this on the last line of your last test function
-	var breakProvider = function() {
-		nock( provider.domain ).persist().get( '*' ).reply( 500 );
-	};
+// This will stop all further calls to this provider from functioning...Please make sure you call this on the last line of your last test function
+var breakProvider = function( provider ) {
+	nock( provider.domain ).persist().get( '*' ).reply( 500 );
+};
 
+// Out repeatable tests
+var commonTests = function( provider ) {
 	describe( '#lookup a card using ' + provider.name, function() {
 		var testGenCard;
 		it( 'should lookup a card without error', function( done ) {
 			var iinToLookup = '411111';
-			stubRequest( iinToLookup );
+			stubRequest( provider, iinToLookup );
 			iin.lookup( iinToLookup, function( err, result ) {
 				if ( err ) {
 					throw( err );
@@ -94,7 +99,7 @@ providers.forEach( function( provider ) {
 
 		it( 'should lookup an invalid card and error gracefully', function( done ) {
 			var iinToLookup = '111111';
-			stubRequest( iinToLookup );
+			stubRequest( provider, iinToLookup );
 			iin.lookup( iinToLookup, function( err, result ) {
 				err.should.not.be.null;
 				err.should.not.be.undefined;
@@ -107,7 +112,7 @@ providers.forEach( function( provider ) {
 		var testVisaDebitCard;
 		it( 'should lookup a card without error', function( done ) {
 			var iinToLookup = '431940';
-			stubRequest( iinToLookup );
+			stubRequest( provider, iinToLookup );
 			iin.lookup( iinToLookup, function( err, result ) {
 				if ( err ) {
 					throw( err );
@@ -133,7 +138,7 @@ providers.forEach( function( provider ) {
 		var testMasterCreditCard;
 		it( 'should lookup a card without error', function( done ) {
 			var iinToLookup = '518791';
-			stubRequest( iinToLookup );
+			stubRequest( provider, iinToLookup );
 			iin.lookup( iinToLookup, function( err, result ) {
 				if ( err ) {
 					throw( err );
@@ -152,8 +157,16 @@ providers.forEach( function( provider ) {
 		it( 'card is of brand mastercard', function( done ) {
 			testMasterCreditCard.brand.should.equal( iin.brands.MASTERCARD );
 			// This is the final test...we are all done with the provider, so let's mock them being broken, so that fallback will work for the subsequent provider
-			breakProvider();
+			breakProvider( provider );
 			done();
 		} );
 	} );
+};
+
+// Lets read our providers in from the config and loop over them
+providers.forEach( function( provider ) {
+	commonTests( provider );
 } );
+
+// Because we have looped all providers and called 'breakProvider' on each we should be OK to test the RegEx version here.
+commonTests( { name: REGEX } );
