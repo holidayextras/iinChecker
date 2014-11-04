@@ -50,7 +50,7 @@ var providers = require( '../configs/providers' );
 
 var stubRequest = function( provider, iin ) {
 	// Don't stub our network requests if our provider is RegEx as it is not a network request
-	if ( provider.name != REGEX ) {
+	if ( provider.name !== REGEX ) {
 		// Make sure our string comparisons don't get caught out by case issues by converting to uppercase
 		if ( iin !== '111111' ) {
 			nock( provider.domain ).get( provider.path + iin ).replyWithFile( 200, __dirname + '/fixtures/' + provider.name + '/' + iin + '.json' );
@@ -123,10 +123,18 @@ var commonTests = function( provider ) {
 			} );
 		} );
 
-		it( 'card is of type debit', function( done ) {
-			testVisaDebitCard.type.should.equal( iin.types.DEBIT );
-			done();
-		} );
+		// Alter test depending on if it is RegEx of a Provider Test
+		if ( provider.name === REGEX ) {
+			it( 'card is of type debit', function( done ) {
+				testVisaDebitCard.type.should.equal( iin.types.UNKNOWN );
+				done();
+			} );
+		} else {
+			it( 'card is of type debit', function( done ) {
+				testVisaDebitCard.type.should.equal( iin.types.DEBIT );
+				done();
+			} );
+		}
 
 		it( 'card is of brand visa', function( done ) {
 			testVisaDebitCard.brand.should.equal( iin.brands.VISA );
@@ -148,16 +156,22 @@ var commonTests = function( provider ) {
 				}
 			} );
 		} );
-
-		it( 'card is of type credit', function( done ) {
-			testMasterCreditCard.type.should.equal( iin.types.CREDIT );
-			done();
-		} );
+		
+		// Alter test depending on if it is RegEx of a Provider Test
+		if ( provider.name === REGEX ) {
+			it( 'card is of type credit', function( done ) {
+				testMasterCreditCard.type.should.equal( iin.types.UNKNOWN );
+				done();
+			} );
+		} else {
+			it( 'card is of type credit', function( done ) {
+				testMasterCreditCard.type.should.equal( iin.types.CREDIT );
+				done();
+		} );	
+		}
 
 		it( 'card is of brand mastercard', function( done ) {
 			testMasterCreditCard.brand.should.equal( iin.brands.MASTERCARD );
-			// This is the final test...we are all done with the provider, so let's mock them being broken, so that fallback will work for the subsequent provider
-			breakProvider( provider );
 			done();
 		} );
 	} );
@@ -166,6 +180,8 @@ var commonTests = function( provider ) {
 // Lets read our providers in from the config and loop over them
 providers.forEach( function( provider ) {
 	commonTests( provider );
+	// This is the final test...we are all done with the provider, so let's mock them being broken, so that fallback will work for the subsequent provider
+	breakProvider( provider );
 } );
 
 // Because we have looped all providers and called 'breakProvider' on each we should be OK to test the RegEx version here.
