@@ -125,7 +125,7 @@ var commonTests = function( provider ) {
 
 		// Alter test depending on if it is RegEx of a Provider Test
 		if ( provider.name === REGEX ) {
-			it( 'card is of type debit', function( done ) {
+			it( 'card is of type unknown', function( done ) {
 				testVisaDebitCard.type.should.equal( iin.types.UNKNOWN );
 				done();
 			} );
@@ -159,7 +159,7 @@ var commonTests = function( provider ) {
 		
 		// Alter test depending on if it is RegEx of a Provider Test
 		if ( provider.name === REGEX ) {
-			it( 'card is of type credit', function( done ) {
+			it( 'card is of type unknown', function( done ) {
 				testMasterCreditCard.type.should.equal( iin.types.UNKNOWN );
 				done();
 			} );
