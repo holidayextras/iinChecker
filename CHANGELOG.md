@@ -1,5 +1,12 @@
 # Changelog
 
+## **0.1.8**
+- [**#19**](https://github.com/Shortbreaks/iinChecker/issues/19) Added in a fall back to RegEx if all providers fail
+- [**#17**](https://github.com/Shortbreaks/iinChecker/issues/17) Updated travis file so coveralls doesn't fail 
+- Fixed the grammer on the tests
+- Made test to the same style as the others
+- [**#11**](https://github.com/Shortbreaks/iinChecker/issues/11) Fixed input string issue
+
 ## **0.1.7**
 - [**#10**](https://github.com/Shortbreaks/iinChecker/issues/10) Fixed issues not getting caught
 - Fixed bug with the provider loop overrunning the end of the array
