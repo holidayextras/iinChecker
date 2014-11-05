@@ -7,7 +7,7 @@ var iin = new IinChecker( {} );
 var nock = require('nock');
 
 // RegEx Constant
-var REGEX = "REGEX";
+var REGEX = 'REGEX';
 
 describe( '#pass in invalid params', function() {
 	it( 'should lookup a card with undefined iin and error gracefully', function( done ) {
@@ -156,7 +156,7 @@ var commonTests = function( provider ) {
 				}
 			} );
 		} );
-		
+
 		// Alter test depending on if it is RegEx of a Provider Test
 		if ( provider.name === REGEX ) {
 			it( 'card is of type unknown', function( done ) {
@@ -167,7 +167,7 @@ var commonTests = function( provider ) {
 			it( 'card is of type credit', function( done ) {
 				testMasterCreditCard.type.should.equal( iin.types.CREDIT );
 				done();
-		} );	
+			} );
 		}
 
 		it( 'card is of brand mastercard', function( done ) {
