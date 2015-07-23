@@ -1,8 +1,11 @@
 # Changelog
 
+## **0.1.9**
+- [**#25**](https://github.com/Shortbreaks/iinChecker/issues/25) Switched the order of provider checking to get better API output
+
 ## **0.1.8**
 - [**#19**](https://github.com/Shortbreaks/iinChecker/issues/19) Added in a fall back to RegEx if all providers fail
-- [**#17**](https://github.com/Shortbreaks/iinChecker/issues/17) Updated travis file so coveralls doesn't fail 
+- [**#17**](https://github.com/Shortbreaks/iinChecker/issues/17) Updated travis file so coveralls doesn't fail
 - Fixed the grammer on the tests
 - Made test to the same style as the others
 - [**#11**](https://github.com/Shortbreaks/iinChecker/issues/11) Fixed input string issue
