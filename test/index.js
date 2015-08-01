@@ -12,14 +12,15 @@ var REGEX = 'REGEX';
 describe( '#pass in invalid params', function() {
 	it( 'should lookup a card with undefined iin and error gracefully', function( done ) {
 		iin.lookup( undefined, function( err, result ) {
-			err.should.be.an( 'object' );
+			// console.log( '*********', err )
+			err.should.be.an.instanceof ( TypeError );
 			err.message.should.equal( iin.options.messages.PARAMETER_IIN_IS_UNDEFINED );
 			done();
 		} );
 	} );
 	it( 'should lookup a card with empty iin and error gracefully', function( done ) {
 		iin.lookup( '', function( err, result ) {
-			err.should.be.an( 'object' );
+			err.should.be.an.instanceof ( TypeError );
 			err.message.should.equal( iin.options.messages.PARAMETER_IIN_IS_EMPTY );
 			done();
 		} );
@@ -31,14 +32,14 @@ describe( '#pass in invalid params', function() {
 	} );
 	it( 'should return an error of not a number', function( done ) {
 		iin.lookup( 'foobar', function( err, result ) {
-			err.should.be.an( 'object' );
+			err.should.be.an.instanceof ( TypeError );
 			err.message.should.equal( iin.options.messages.PARAMETER_IIN_IS_NOT_A_NUMBER );
 			done();
 		} );
 	} );
 	it( 'should return an error of not long enough', function( done ) {
 		iin.lookup( '123', function( err, result ) {
-			err.should.be.an( 'object' );
+			err.should.be.an.instanceof ( TypeError );
 			err.message.should.equal( iin.options.messages.PARAMETER_IIN_IS_NOT_LONG_ENOUGH );
 			done();
 		} );
