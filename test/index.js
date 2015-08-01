@@ -12,7 +12,6 @@ var REGEX = 'REGEX';
 describe( '#pass in invalid params', function() {
 	it( 'should lookup a card with undefined iin and error gracefully', function( done ) {
 		iin.lookup( undefined, function( err, result ) {
-			// console.log( '*********', err )
 			err.should.be.an.instanceof ( TypeError );
 			err.message.should.equal( iin.options.messages.PARAMETER_IIN_IS_UNDEFINED );
 			done();

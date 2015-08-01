@@ -9,10 +9,6 @@
 	"disallowKeywordsOnNewLine" : [ "else" ],
 	"disallowTrailingWhitespace" : true,
 	"disallowMixedSpacesAndTabs": true,
-	"validateJSDoc" : {
-	"checkParamNames" : true,
-		"requireParamTypes" : true
-	},
 	"requireSpaceAfterKeywords" : [ "else", "return", "try", "catch" ],
 	"requireParenthesesAroundIIFE" : true,
 	"requireSpacesInsideObjectBrackets" : "all",
