@@ -1,5 +1,8 @@
 # Changelog
 
+## **0.2.0**
+- Updating dependencies to current stable versions and updating tests to match.
+
 ## **0.1.9**
 - [**#25**](https://github.com/Shortbreaks/iinChecker/issues/25) Switched the order of provider checking to get better API output
 
