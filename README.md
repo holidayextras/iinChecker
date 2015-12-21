@@ -31,7 +31,16 @@ application and use it's exported methods. Here is a simple example of that whic
 
 ```js
 var IinChecker = require( 'iin-checker' );
+// Initialise with default options no caching
 var iin = new IinChecker( {} );
+
+// Initialise with caching
+var iin = new IinChecker( {
+		cache: true, // defaulting to no cache
+		cacheServerConfig: {} // will default to in-memory cache can be overwritten by redis server config.
+} );
+
+
 
 iin.lookup( '543210', function( err, result ) {
 	if ( err ) {
@@ -41,6 +50,9 @@ iin.lookup( '543210', function( err, result ) {
 	}
 } );
 ```
+### Caching
+Caching is turned off by default. Currently supports redis cache and in-memory cache.
+It can be turned on and will be set to in-memory caching if cacheServerConfig is empty.
 
 ### Card Type Detection
 
