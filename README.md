@@ -36,8 +36,8 @@ var iin = new IinChecker( {} );
 
 // Initialise with caching
 var iin = new IinChecker( {
-		cache: true, // defaulting to no cache
-		cacheServerConfig: {} // will default to in-memory cache can be overwritten by redis server config.
+		cache: true,
+		cacheServerConfig: {}
 } );
 
 
