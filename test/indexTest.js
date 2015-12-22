@@ -1,7 +1,5 @@
 'use strict';
 
-// var should;
-// should = require( 'chai' ).should();
 var chai = require( 'chai' );
 var expect = chai.expect;
 var IinChecker = require( '../index' );
