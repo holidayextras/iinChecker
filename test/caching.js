@@ -1,6 +1,5 @@
 /* jshint -W098 */
 /* jshint expr:true */
-
 var chai = require( 'chai' );
 var expect = chai.expect;
 var sinon = require('sinon');
@@ -13,8 +12,8 @@ var iin = new IinChecker( {
 	cache: true,
 	cacheServerConfig: {}
 } );
-var getCache;
-var setCache;
+var getCacheStub;
+var setCacheStub;
 var makeRequestStub;
 
 var cardInfo = {
@@ -24,7 +23,7 @@ var cardInfo = {
 	issuer: 'JPMORGAN CHASE BANK, N.A.',
 	type: 'CREDIT',
 	country_code: 'US'
-}
+};
 
 // Load all of our providers into an array that we can loop over.
 var provider = {
@@ -39,9 +38,9 @@ var provider = {
 			type: ( returnedData.type ? returnedData.type : nullValue ),
 			category: nullValue,
 			country: returnedData.country_code
-		}
+		};
 	}
-}
+};
 var cardToLookup = '411111';
 describe( '#set and retrive card details from in-memory cache', function() {
 	before( function() {
@@ -50,8 +49,7 @@ describe( '#set and retrive card details from in-memory cache', function() {
 			var deferred = q.defer();
 			if(this.get.callCount === 1 ) {
 				deferred.reject( 'cache failed' );
-			}
-			else {
+			} else {
 				deferred.resolve( cardInfo );
 			}
 			return deferred.promise;
@@ -83,7 +81,7 @@ describe( '#set and retrive card details from in-memory cache', function() {
 					lookupResults.push(result);
 				}
 			} );
-		}
+		};
 		// multiple card look ups
 		lookupCard( cardToLookup );
 		lookupCard( cardToLookup );

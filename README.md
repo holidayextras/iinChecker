@@ -1,9 +1,7 @@
 # IIN Checker for payment cards
-
-[![Build Status](https://travis-ci.org/Shortbreaks/iinChecker.png)](https://travis-ci.org/Shortbreaks/iinChecker)
-[![Coverage Status](https://coveralls.io/repos/Shortbreaks/iinChecker/badge.png?branch=master)](https://coveralls.io/r/Shortbreaks/iinChecker?branch=master)
-[![Dependency status](https://david-dm.org/Shortbreaks/iinChecker/status.png)](https://david-dm.org/Shortbreaks/iinChecker#info=dependencies&view=table)
-[![Dev Dependency Status](https://david-dm.org/Shortbreaks/iinChecker/dev-status.png)](https://david-dm.org/Shortbreaks/iinChecker#info=devDependencies&view=table)
+[![Circle CI](https://circleci.com/gh/holidayextras/iinChecker/tree/master.svg?style=svg&circle-token=af8da07bbe8bddd209990d0f9f0c0a2f39db99df)](https://circleci.com/gh/holidayextras/iinChecker)
+[![Dependency status](https://david-dm.org/holidayextras/iinChecker/status.png)](https://david-dm.org/holidayextras/iinChecker#info=dependencies&view=table)
+[![Dev Dependency Status](https://david-dm.org/holidayextras/iinChecker/dev-status.png)](https://david-dm.org/holidayextras/iinChecker#info=devDependencies&view=table)
 
 [![NPM](https://nodei.co/npm/iin-checker.png)](https://nodei.co/npm/iin-checker/)
 

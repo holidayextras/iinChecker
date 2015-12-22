@@ -17,11 +17,12 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "node_modules/deployment-helpers/nodeApps/preRelease.sh && grunt jshint && grunt jscs && istanbul cover _mocha -- --recursive -R spec"
   },
   "devDependencies": {
     "chai": "3.2.0",
     "coveralls": "2.11.3",
+    "deployment-helpers": "git+ssh://git@github.com:holidayextras/deployment-helpers.git",
     "grunt": "0.4.5",
     "grunt-contrib-jshint": "0.11.2",
     "grunt-jscs": "2.0.0",
