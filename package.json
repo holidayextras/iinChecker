@@ -17,7 +17,7 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "test": "node_modules/deployment-helpers/nodeApps/preRelease.sh && grunt jshint && grunt jscs && istanbul cover _mocha -- --recursive -R spec"
+    "test": "node_modules/deployment-helpers/nodeApps/preRelease.sh && node_modules/.bin/make-up lib config controllers flows plugins test && istanbul cover _mocha -- test/**/*.js -R spec"
   },
   "devDependencies": {
     "chai": "3.2.0",

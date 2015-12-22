@@ -1,8 +1,2 @@
-
-/**
-* @name /index.js
-* @description Nodejs style iinChecker include
-* @author Simon Wood <simon.wood@holidayextras.com>
-*/
-
+'use strict';
 module.exports = require( './lib/iinChecker' );
