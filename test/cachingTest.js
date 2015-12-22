@@ -5,7 +5,7 @@ var sinon = require('sinon');
 var cache = require( '../lib/cache' );
 var nock = require('nock');
 var IinChecker = require( '../index' );
-var q = require('Q');
+var Q = require('q');
 var path = require( 'path' );
 
 var iin = new IinChecker( {
@@ -45,7 +45,7 @@ describe( '#set and retrive card details from in-memory cache', function() {
   before( function() {
     // stub the cache.get function
     getCacheStub = sinon.stub( cache, 'get', function() {
-      var deferred = q.defer();
+      var deferred = Q.defer();
       if (this.get.callCount === 1 ) {
         deferred.reject( 'cache failed' );
       } else {
