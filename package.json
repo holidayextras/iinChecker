@@ -29,6 +29,7 @@
     "grunt-mocha-test": "0.12.7",
     "istanbul": "0.3.17",
     "mocha": "2.2.5",
+    "make-up": "6.0.0",
     "nock": "2.9.1",
     "sinon": "1.12.2"
   },
