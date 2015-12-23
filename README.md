@@ -34,23 +34,31 @@ var iin = new IinChecker( {} );
 
 // Initialise with caching
 var iin = new IinChecker( {
-		cache: true,
-		cacheServerConfig: {}
+    cache: true,
+    cacheServerConfig: {}
+    cachePolicy: [
+        {
+          'segment': 'iinChecker',
+          'expiresIn': 86400000
+        }
+      ]
 } );
 
 
 
 iin.lookup( '543210', function( err, result ) {
-	if ( err ) {
-		console.log( 'Error:', err );
-	} else {
-		console.log( 'Result:', result );
-	}
+  if ( err ) {
+    console.log( 'Error:', err );
+  } else {
+    console.log( 'Result:', result );
+  }
 } );
 ```
 ### Caching
 Caching is turned off by default. Currently supports redis cache and in-memory cache.
 It can be turned on and will be set to in-memory caching if cacheServerConfig is empty.
+The cache time to live(expiresIn) is set to a day (86400000 ms) and segement is set to 'iinChecker' by default this can be overridden by passing custom 'cachePolicy'.
+
 
 ### Card Type Detection
 
@@ -61,12 +69,12 @@ var IinChecker = require( 'iin-checker' );
 var iin = new IinChecker( {} );
 
 iin.lookup( '543210', function( err, result ) {
-	if ( err ) {
-		console.log( 'Error:', err );
-	} else {
-		var isDebit = ( result.type === iin.types.DEBIT )
-		console.log( 'Debit?:', isDebit );
-	}
+  if ( err ) {
+    console.log( 'Error:', err );
+  } else {
+    var isDebit = ( result.type === iin.types.DEBIT )
+    console.log( 'Debit?:', isDebit );
+  }
 } );
 ```
 
@@ -81,12 +89,12 @@ var IinChecker = require( 'iin-checker' );
 var iin = new IinChecker( {} );
 
 iin.lookup( '543210', function( err, result ) {
-	if ( err ) {
-		console.log( 'Error:', err );
-	} else {
-		var isMastercard = ( result.brand === iin.brands.MASTERCARD )
-		console.log( 'Mastercard?:', isMastercard );
-	}
+  if ( err ) {
+    console.log( 'Error:', err );
+  } else {
+    var isMastercard = ( result.brand === iin.brands.MASTERCARD )
+    console.log( 'Mastercard?:', isMastercard );
+  }
 } );
 ```
 

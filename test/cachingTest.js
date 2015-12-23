@@ -1,11 +1,11 @@
 'use strict';
 var chai = require( 'chai' );
 var expect = chai.expect;
-var sinon = require('sinon');
+var sinon = require( 'sinon' );
 var cache = require( '../lib/cache' );
-var nock = require('nock');
+var nock = require( 'nock' );
 var IinChecker = require( '../index' );
-var Q = require('q');
+var Q = require( 'q' );
 var path = require( 'path' );
 
 var iin = new IinChecker( {
@@ -16,14 +16,6 @@ var getCacheStub;
 var setCacheStub;
 var makeRequestStub;
 
-var cardInfo = {
-  status: 'success',
-  bin: '411111',
-  brand: 'VISA',
-  issuer: 'JPMORGAN CHASE BANK, N.A.',
-  type: 'CREDIT',
-  country_code: 'US'
-};
 
 // Load all of our providers into an array that we can loop over.
 var provider = {
@@ -45,16 +37,23 @@ describe( '#set and retrive card details from in-memory cache', function() {
   before( function() {
     // stub the cache.get function
     getCacheStub = sinon.stub( cache, 'get', function() {
-      var deferred = Q.defer();
+      var result;
       if (this.get.callCount === 1 ) {
-        deferred.reject( 'cache failed' );
+        result = Q.reject( 'cache failed' );
       } else {
-        deferred.resolve( cardInfo );
+        result = Q.resolve( {
+          status: 'success',
+          bin: '411111',
+          brand: 'VISA',
+          issuer: 'JPMORGAN CHASE BANK, N.A.',
+          type: 'CREDIT',
+          country_code: 'US'
+        } );
       }
-      return deferred.promise;
+      return result;
     } );
     // stub the cache.set function
-    setCacheStub = sinon.stub( cache, 'set');
+    setCacheStub = sinon.stub( cache, 'set' );
 
     // stub the iin.makeRequest function
     makeRequestStub = sinon.stub( iin, 'makeRequest', function( iinToLookup ) {
