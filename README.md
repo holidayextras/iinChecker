@@ -35,7 +35,7 @@ var iin = new IinChecker( {} );
 // Initialise with caching
 var iin = new IinChecker( {
     cache: true,
-    cacheServerConfig: {}
+    cacheServerConfig: {},
     cachePolicy: [
         {
           'segment': 'iinChecker',
