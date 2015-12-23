@@ -16,7 +16,6 @@ var getCacheStub;
 var setCacheStub;
 var makeRequestStub;
 
-
 // Load all of our providers into an array that we can loop over.
 var provider = {
   name: 'RIBBON',
@@ -37,20 +36,17 @@ describe( '#set and retrive card details from in-memory cache', function() {
   before( function() {
     // stub the cache.get function
     getCacheStub = sinon.stub( cache, 'get', function() {
-      var result;
       if (this.get.callCount === 1 ) {
-        result = Q.reject( 'cache failed' );
-      } else {
-        result = Q.resolve( {
-          status: 'success',
-          bin: '411111',
-          brand: 'VISA',
-          issuer: 'JPMORGAN CHASE BANK, N.A.',
-          type: 'CREDIT',
-          country_code: 'US'
-        } );
+        return Q.reject( 'cache failed' );
       }
-      return result;
+      return Q.resolve( {
+        status: 'success',
+        bin: '411111',
+        brand: 'VISA',
+        issuer: 'JPMORGAN CHASE BANK, N.A.',
+        type: 'CREDIT',
+        country_code: 'US'
+      } );
     } );
     // stub the cache.set function
     setCacheStub = sinon.stub( cache, 'set' );
@@ -98,9 +94,3 @@ describe( '#set and retrive card details from in-memory cache', function() {
     return expect( makeRequestStub.calledOnce ).to.be.true;
   } );
 } );
-
-
-
-
-
-

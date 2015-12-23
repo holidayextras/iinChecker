@@ -1,0 +1,11 @@
+{
+  "language": "en",
+  "cache": false,
+  "cacheServerConfig": {},
+  "cachePolicy": [
+    {
+      "segment": "iinChecker",
+      "expiresIn": 86400000
+    }
+  ]
+}
