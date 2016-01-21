@@ -34,14 +34,10 @@ var iin = new IinChecker( {} );
 
 // Initialise with caching
 var iin = new IinChecker( {
-    cache: true,
-    cacheServerConfig: {},
-    cachePolicy: [
-        {
-          'segment': 'iinChecker',
-          'expiresIn': 86400000
-        }
-      ]
+    cache: {
+      set: function( iin, cardDetails ) {...},
+      get: function( iin ) {..}
+    }
 } );
 
 
@@ -55,9 +51,8 @@ iin.lookup( '543210', function( err, result ) {
 } );
 ```
 ### Caching
-Caching is turned off by default. Currently supports redis cache and in-memory cache.
-It can be turned on and will be set to in-memory caching if cacheServerConfig is empty.
-The cache time to live(expiresIn) is set to a day (86400000 ms) and segement is set to 'iinChecker' by default this can be overridden by passing custom 'cachePolicy'.
+Caching is turned off by default.
+It can be turned on by passing in options a cache object with your functions to set and get the cache'.
 
 
 ### Card Type Detection
