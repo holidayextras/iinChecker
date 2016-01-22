@@ -99,9 +99,8 @@ Possible values for _iin.brands_ are **VISA**, **MASTERCARD**, **AMEX**, **DISCO
 
 ## [Contributing](CONTRIBUTING.md)
 
-
 ## License
-Copyright (c) 2014 Shortbreaks
+Copyright (c) 2016 Holiday Extras Ltd
 Licensed under the MIT license.
 
 ## Todo
