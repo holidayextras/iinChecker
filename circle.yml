@@ -1,0 +1,32 @@
+machine:
+  node:
+    version: 0.10.38
+dependencies:
+  pre:
+    - npm install git+ssh://git@github.com:holidayextras/deployment-helpers.git
+    - node_modules/deployment-helpers/nodeApps/preRelease.sh
+    - npm install istanbul mocha -g
+test:
+  pre:
+    - mkdir -p $CIRCLE_TEST_REPORTS/unit
+    - mkdir -p $CIRCLE_TEST_REPORTS/coverage
+  override:
+    - node_modules/.bin/make-up lib integrations test
+    - istanbul cover _mocha --  --timeout 15000 --recursive test/**/*Test.js -R xunit > $CIRCLE_TEST_REPORTS/unit/results.xml
+  post:
+    - cp -r ./coverage/ $CIRCLE_ARTIFACTS/coverage
+deployment:
+  production:
+    branch: master
+    commands:
+      - node_modules/deployment-helpers/nodeApps/postRelease.sh production
+  staging:
+    branch: staging
+    commands:
+      - node_modules/deployment-helpers/nodeApps/postRelease.sh staging
+experimental:
+  notify:
+    branches:
+      only:
+        - master
+        - staging

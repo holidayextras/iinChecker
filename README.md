@@ -1,9 +1,7 @@
 # IIN Checker for payment cards
-
-[![Build Status](https://travis-ci.org/Shortbreaks/iinChecker.png)](https://travis-ci.org/Shortbreaks/iinChecker)
-[![Coverage Status](https://coveralls.io/repos/Shortbreaks/iinChecker/badge.png?branch=master)](https://coveralls.io/r/Shortbreaks/iinChecker?branch=master)
-[![Dependency status](https://david-dm.org/Shortbreaks/iinChecker/status.png)](https://david-dm.org/Shortbreaks/iinChecker#info=dependencies&view=table)
-[![Dev Dependency Status](https://david-dm.org/Shortbreaks/iinChecker/dev-status.png)](https://david-dm.org/Shortbreaks/iinChecker#info=devDependencies&view=table)
+[![Circle CI](https://circleci.com/gh/holidayextras/iinChecker/tree/master.svg?style=svg&circle-token=af8da07bbe8bddd209990d0f9f0c0a2f39db99df)](https://circleci.com/gh/holidayextras/iinChecker)
+[![Dependency status](https://david-dm.org/holidayextras/iinChecker/status.png)](https://david-dm.org/holidayextras/iinChecker#info=dependencies&view=table)
+[![Dev Dependency Status](https://david-dm.org/holidayextras/iinChecker/dev-status.png)](https://david-dm.org/holidayextras/iinChecker#info=devDependencies&view=table)
 
 [![NPM](https://nodei.co/npm/iin-checker.png)](https://nodei.co/npm/iin-checker/)
 
@@ -31,16 +29,31 @@ application and use it's exported methods. Here is a simple example of that whic
 
 ```js
 var IinChecker = require( 'iin-checker' );
+// Initialise with default options no caching
 var iin = new IinChecker( {} );
 
+// Initialise with caching
+var iin = new IinChecker( {
+    cache: {
+      set: function( iin, cardDetails ) {...},
+      get: function( iin ) {..}
+    }
+} );
+
+
+
 iin.lookup( '543210', function( err, result ) {
-	if ( err ) {
-		console.log( 'Error:', err );
-	} else {
-		console.log( 'Result:', result );
-	}
+  if ( err ) {
+    console.log( 'Error:', err );
+  } else {
+    console.log( 'Result:', result );
+  }
 } );
 ```
+### Caching
+Caching is turned off by default.
+It can be turned on by passing in options a cache object with your functions to set and get the cache'.
+
 
 ### Card Type Detection
 
@@ -51,12 +64,12 @@ var IinChecker = require( 'iin-checker' );
 var iin = new IinChecker( {} );
 
 iin.lookup( '543210', function( err, result ) {
-	if ( err ) {
-		console.log( 'Error:', err );
-	} else {
-		var isDebit = ( result.type === iin.types.DEBIT )
-		console.log( 'Debit?:', isDebit );
-	}
+  if ( err ) {
+    console.log( 'Error:', err );
+  } else {
+    var isDebit = ( result.type === iin.types.DEBIT )
+    console.log( 'Debit?:', isDebit );
+  }
 } );
 ```
 
@@ -71,12 +84,12 @@ var IinChecker = require( 'iin-checker' );
 var iin = new IinChecker( {} );
 
 iin.lookup( '543210', function( err, result ) {
-	if ( err ) {
-		console.log( 'Error:', err );
-	} else {
-		var isMastercard = ( result.brand === iin.brands.MASTERCARD )
-		console.log( 'Mastercard?:', isMastercard );
-	}
+  if ( err ) {
+    console.log( 'Error:', err );
+  } else {
+    var isMastercard = ( result.brand === iin.brands.MASTERCARD )
+    console.log( 'Mastercard?:', isMastercard );
+  }
 } );
 ```
 
@@ -86,9 +99,8 @@ Possible values for _iin.brands_ are **VISA**, **MASTERCARD**, **AMEX**, **DISCO
 
 ## [Contributing](CONTRIBUTING.md)
 
-
 ## License
-Copyright (c) 2014 Shortbreaks
+Copyright (c) 2016 Holiday Extras Ltd
 Licensed under the MIT license.
 
 ## Todo
