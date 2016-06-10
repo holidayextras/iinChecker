@@ -1,7 +1,7 @@
 {
   "name": "iin-checker",
   "description": "Issuer identification number checker which returns details about a credit/debit card",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "homepage": "https://github.com/Shortbreaks/iinChecker",
   "author": "Simon Wood <simon.wood@holidayextras.com> (https://github.com/Shortbreaks)",
   "repository": {
