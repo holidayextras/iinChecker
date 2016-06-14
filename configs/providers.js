@@ -1,7 +1,7 @@
 module.exports = [
 	{
 		name: "RIBBON",
-		domain: "https://bins.ribbon.co",
+		domain: "http://bins.ribbon.co",
 		path: "/api/v1/bins/",
 		map: function( returnedData, nullValue ) {
 			return {
@@ -11,7 +11,7 @@ module.exports = [
 				type: ( returnedData.type ? returnedData.type : nullValue ),
 				category: nullValue,
 				country: returnedData.country_code
-			}
+			};
 		}
 	},
 	{
@@ -23,10 +23,10 @@ module.exports = [
 				iin: returnedData.bin,
 				brand: returnedData.brand,
 				issuer: returnedData.bank,
-				type: returnedData.card_type,
+				type: ( returnedData.card_type ? returnedData.card_type : nullValue ),
 				category: returnedData.card_category,
 				country: returnedData.country_code
-			}
+			};
 		}
 	}
-]
+];

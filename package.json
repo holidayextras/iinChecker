@@ -1,7 +1,7 @@
 {
   "name": "iin-checker",
   "description": "Issuer identification number checker which returns details about a credit/debit card",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "homepage": "https://github.com/Shortbreaks/iinChecker",
   "author": "Simon Wood <simon.wood@holidayextras.com> (https://github.com/Shortbreaks)",
   "repository": {
@@ -28,14 +28,13 @@
     "grunt-jscs": "2.0.0",
     "grunt-mocha-test": "0.12.7",
     "istanbul": "0.3.17",
-    "make-up": "6.0.0",
+    "make-up": ">=9.1.0",
     "mocha": "2.2.5",
-    "nock": "2.9.1",
+    "nock": "8.0.0",
     "sinon": "1.12.2"
   },
   "dependencies": {
-    "lodash": "3.10.0",
-    "q": "1.4.0",
-    "request": "2.60.0"
+    "lodash": "4.13.1",
+    "request": "2.72.0"
   }
 }
