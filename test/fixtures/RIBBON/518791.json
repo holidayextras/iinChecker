@@ -4,5 +4,6 @@
   "brand": "MASTERCARD",
   "issuer": "LLOYDS TSB BANK PLC",
   "type": "CREDIT",
-  "country_code": "GB"
+  "country_code": "GB",
+  "is_prepaid": false
 }

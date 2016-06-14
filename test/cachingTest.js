@@ -13,7 +13,7 @@ var cache = {
 };
 var provider = {
   name: 'RIBBON',
-  domain: 'https://bins.ribbon.co',
+  domain: 'http://bins.ribbon.co',
   path: '/api/v1/bins/',
   map: function( returnedData, nullValue ) {
     return {
@@ -70,12 +70,12 @@ describe( 'iinChecker()', function() {
             throw ( err );
           } else {
             expect( result ).to.deep.equal( cardDetails );
-            expect( setCacheStub.calledOnce ).to.be.true;
+            expect( setCacheStub.calledOnce ).to.equal(true);
           }
         } );
       } );
       it( 'should have attempted to get cardDetails from cache', function() {
-        expect( getCacheStub.calledOnce ).to.be.true;
+        expect( getCacheStub.calledOnce ).to.equal(true);
       } );
 
     } );
@@ -106,14 +106,14 @@ describe( 'iinChecker()', function() {
           if ( err ) {
             throw ( err );
           } else {
-            expect( getCacheStub.calledOnce ).to.be.true;
+            expect( getCacheStub.calledOnce ).to.equal(true);
             expect( result ).to.be.equal.to( 'Result from cache' );
           }
         } );
       } );
 
       it( 'will not  attempt set cardDetails in cache', function() {
-        expect( setCacheStub.called ).to.be.false;
+        expect( setCacheStub.called ).to.equal(false);
       } );
     } );
   } );

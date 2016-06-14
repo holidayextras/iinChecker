@@ -4,5 +4,6 @@
   "brand": "VISA",
   "issuer": "ROYAL BANK OF SCOTLAND",
   "type": "DEBIT",
-  "country_code": "IE"
+  "country_code": "IE",
+  "is_prepaid": false
 }
