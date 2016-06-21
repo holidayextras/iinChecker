@@ -1,7 +1,7 @@
 module.exports = [
 	{
-		name: "RIBBON",
-		domain: "http://bins.ribbon.co",
+		name: "PAYOUT",
+		domain: "https://bins.payout.com",
 		path: "/api/v1/bins/",
 		map: function( returnedData, nullValue ) {
 			return {
