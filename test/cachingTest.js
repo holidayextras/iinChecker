@@ -72,12 +72,12 @@ describe( 'iinChecker()', function() {
             throw ( err );
           } else {
             expect( result ).to.deep.equal( cardDetails );
-            expect( setCacheStub.calledOnce ).to.equal(true);
+            expect( setCacheStub.calledOnce ).to.be.true;
           }
         } );
       } );
       it( 'should have attempted to get cardDetails from cache', function() {
-        expect( getCacheStub.calledOnce ).to.equal(true);
+        expect( getCacheStub.calledOnce ).to.be.true;
       } );
 
     } );
