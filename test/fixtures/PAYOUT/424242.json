@@ -1,0 +1,9 @@
+{
+  "status": "success",
+  "bin": "424242",
+  "brand": "MASTERCARD",
+  "issuer": "JPMORGAN CHASE BANK, N.A.",
+  "type": "CREDIT",
+  "country_code": "US",
+  "is_prepaid": false
+}
