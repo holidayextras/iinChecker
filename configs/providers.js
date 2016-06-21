@@ -8,7 +8,7 @@ module.exports = [
 				iin: returnedData.bin,
 				brand: returnedData.brand,
 				issuer: returnedData.issuer,
-				type: ( returnedData.type ? returnedData.type : nullValue ),
+				type: returnedData.type || nullValue,
 				category: nullValue,
 				country: returnedData.country_code
 			};
@@ -23,7 +23,7 @@ module.exports = [
 				iin: returnedData.bin,
 				brand: returnedData.brand,
 				issuer: returnedData.bank,
-				type: ( returnedData.card_type ? returnedData.card_type : nullValue ),
+				type: returnedData.card_type || nullValue,
 				category: returnedData.card_category,
 				country: returnedData.country_code
 			};

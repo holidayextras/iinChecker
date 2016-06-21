@@ -148,6 +148,7 @@ var commonTests = function( provider ) {
       } );
     } );
 
+
     // Alter test depending on if it is RegEx of a Provider Test
     if ( provider.name === REGEX ) {
       it( 'card is of type unknown', function() {
@@ -161,6 +162,68 @@ var commonTests = function( provider ) {
 
     it( 'card is of brand mastercard', function() {
       expect( testMasterCreditCard.brand ).to.equal( iin.brands.MASTERCARD );
+    } );
+  } );
+
+  describe( '#lookup visa credit that is incorrectly reported as mastercard using ' + provider.name, function() {
+    var testVisaCreditCard;
+    it( 'should lookup a card without error', function( done ) {
+      var iinToLookup = '424242';
+      stubRequest( provider, iinToLookup );
+      iin.lookup( iinToLookup, function( err, result ) {
+        if ( err ) {
+          throw ( err );
+        } else {
+          testVisaCreditCard = result;
+          done();
+        }
+      } );
+    } );
+
+    // Alter test depending on if it is RegEx of a Provider Test
+    if ( provider.name === REGEX ) {
+      it( 'card is of type unknown', function() {
+        expect( testVisaCreditCard.type ).to.equal( iin.types.UNKNOWN );
+      } );
+    } else {
+      it( 'card is of type credit', function() {
+        expect( testVisaCreditCard.type ).to.equal( iin.types.CREDIT );
+      } );
+    }
+
+    it( 'card is of brand visa', function() {
+      expect( testVisaCreditCard.brand ).to.equal( iin.brands.VISA );
+    } );
+  } );
+
+  describe( '#lookup mastercard credit that is incorrectly reported as visa using ' + provider.name, function() {
+    var testMastercardCreditCard;
+    it( 'should lookup a card without error', function( done ) {
+      var iinToLookup = '525252';
+      stubRequest( provider, iinToLookup );
+      iin.lookup( iinToLookup, function( err, result ) {
+        if ( err ) {
+          throw ( err );
+        } else {
+          testMastercardCreditCard = result;
+          done();
+        }
+      } );
+    } );
+
+    // Alter test depending on if it is RegEx of a Provider Test
+    if ( provider.name === REGEX ) {
+      it( 'card is of type unknown', function() {
+        expect( testMastercardCreditCard.type ).to.equal( iin.types.UNKNOWN );
+      } );
+    } else {
+      it( 'card is of type credit', function() {
+        expect( testMastercardCreditCard.type ).to.equal( iin.types.CREDIT );
+      } );
+    }
+
+    it( 'card is of brand mastercard', function() {
+      expect( testMastercardCreditCard.brand ).to.equal( iin.brands.MASTERCARD );
     } );
   } );
 };

@@ -1,6 +1,8 @@
  /*eslint no-unused-expressions:0 */
 'use strict';
 var chai = require( 'chai' );
+var dirtyChai = require('dirty-chai');
+chai.use(dirtyChai);
 var expect = chai.expect;
 var sinon = require( 'sinon' );
 var IinChecker = require( '../index' );
@@ -113,7 +115,7 @@ describe( 'iinChecker()', function() {
       } );
 
       it( 'will not  attempt set cardDetails in cache', function() {
-        expect( setCacheStub.called ).to.equal(false);
+        expect( setCacheStub.called ).to.be.false;
       } );
     } );
   } );
