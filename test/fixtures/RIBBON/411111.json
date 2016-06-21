@@ -1,0 +1,9 @@
+{
+  "status": "success",
+  "bin": "411111",
+  "brand": "VISA",
+  "issuer": "JPMORGAN CHASE BANK, N.A.",
+  "type": "CREDIT",
+  "country_code": "US",
+  "is_prepaid": false
+}

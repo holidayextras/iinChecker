@@ -1,0 +1,9 @@
+{
+  "status": "success",
+  "bin": "431940",
+  "brand": "VISA",
+  "issuer": "ROYAL BANK OF SCOTLAND",
+  "type": "DEBIT",
+  "country_code": "IE",
+  "is_prepaid": false
+}
