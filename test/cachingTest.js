@@ -1,6 +1,8 @@
  /*eslint no-unused-expressions:0 */
 'use strict';
 var chai = require( 'chai' );
+var dirtyChai = require('dirty-chai');
+chai.use(dirtyChai);
 var expect = chai.expect;
 var sinon = require( 'sinon' );
 var IinChecker = require( '../index' );
@@ -13,7 +15,7 @@ var cache = {
 };
 var provider = {
   name: 'RIBBON',
-  domain: 'https://bins.ribbon.co',
+  domain: 'http://bins.ribbon.co',
   path: '/api/v1/bins/',
   map: function( returnedData, nullValue ) {
     return {
@@ -106,7 +108,7 @@ describe( 'iinChecker()', function() {
           if ( err ) {
             throw ( err );
           } else {
-            expect( getCacheStub.calledOnce ).to.be.true;
+            expect( getCacheStub.calledOnce ).to.equal(true);
             expect( result ).to.be.equal.to( 'Result from cache' );
           }
         } );

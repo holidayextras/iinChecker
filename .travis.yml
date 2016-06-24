@@ -1,0 +1,12 @@
+sudo: false
+language: node_js
+node_js:
+  - 0.10
+cache:
+  directories:
+  - node_modules
+before_script:
+  - npm install -g grunt-cli
+  - npm install -g mocha
+after_script:
+  - istanbul cover _mocha --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
